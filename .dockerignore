@@ -1,0 +1,9 @@
+# Thx: https://betterstack.com/community/guides/scaling-nodejs/dockerize-nodejs/#step-2-creating-a-docker-image-for-your-node-js-app
+
+**/*.env
+
+# Dependencies
+**/node_modules
+
+# Other unnecessary files or directories
+.git/
