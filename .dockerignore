@@ -7,3 +7,5 @@
 
 # Other unnecessary files or directories
 .git/
+.dockerignore
+

@@ -6,6 +6,9 @@ LABEL authors="deadizar"
 # Change the working directory to ./build
 WORKDIR ./build
 
+VOLUME /data
+COPY ./data /data
+
 # Copy the package.json and package-lock.json files to the /build directory
 COPY package.json ./
 COPY package-lock.json ./
@@ -13,8 +16,9 @@ COPY package-lock.json ./
 # Install production dependencies and clean the cache
 RUN npm ci --omit=dev && npm cache clean --force
 
-COPY . .
+MKDIR server
+COPY ./server /server
 
-EXPOSE 443
+EXPOSE 4443
 ENTRYPOINT ["node"]
-CMD ["./server/resources/app/main.js", "--headless", "--dataPath=./data" ]
+CMD ["./server/resources/app/main.js", "--headless", "--dataPath=/data" ]
